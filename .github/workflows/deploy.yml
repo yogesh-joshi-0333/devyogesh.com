@@ -42,17 +42,14 @@ jobs:
         id: target
         run: |
           if [ "${{ github.ref_name }}" = "main" ]; then
-            echo "dir=public_html/" >> $GITHUB_OUTPUT
+            echo "dir=domains/devyogesh.com/public_html/" >> $GITHUB_OUTPUT
           else
-            echo "dir=public_html/preview/" >> $GITHUB_OUTPUT
+            echo "dir=domains/devyogesh.com/public_html/preview/" >> $GITHUB_OUTPUT
           fi
 
-      - name: Deploy to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/
-          server-dir: ./${{ steps.target.outputs.dir }}
-          dangerous-clean-html: false
+      - name: Install sshpass
+        run: sudo apt-get install -y sshpass
+
+      - name: Deploy to Hostinger via SFTP/SSH
+        run: |
+          sshpass -p "${{ secrets.SSH_PASSWORD }}" rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no" ./out/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/${{ steps.target.outputs.dir }}
