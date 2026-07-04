@@ -171,6 +171,7 @@ export function CommandPalette({ projects }: Props) {
             <li key={a.id} id={a.id} role="option" aria-selected={i === index}>
               <button
                 type="button"
+                tabIndex={-1}
                 onClick={a.run}
                 onMouseEnter={() => setIndex(i)}
                 className={`flex w-full items-center justify-between rounded-lg px-4 py-2.5 text-left text-sm ${

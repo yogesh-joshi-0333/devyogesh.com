@@ -12,8 +12,8 @@ export function Journey({ data }: { data: JourneyContent }) {
     >
       <ol className="relative space-y-12 border-l border-line pl-8">
         {data.items.map((item, i) => (
-          <Reveal key={item.period + item.org} delay={i * 0.05}>
-            <li className="relative">
+          <li key={item.period + item.org} className="relative">
+            <Reveal delay={i * 0.05}>
               <span
                 className="absolute -left-[37px] top-1.5 h-3 w-3 rounded-full border-2 border-blue bg-bg"
                 aria-hidden
@@ -30,8 +30,8 @@ export function Journey({ data }: { data: JourneyContent }) {
                   </li>
                 ))}
               </ul>
-            </li>
-          </Reveal>
+            </Reveal>
+          </li>
         ))}
       </ol>
       <Reveal className="mt-14">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
+import { m, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/cn";
 
 type Props = {
@@ -32,7 +32,7 @@ export function MagneticButton({ href, variant = "primary", className, children 
   }
 
   return (
-    <motion.a
+    <m.a
       ref={ref}
       href={href}
       style={{ x: sx, y: sy }}
@@ -47,6 +47,6 @@ export function MagneticButton({ href, variant = "primary", className, children 
       )}
     >
       {children}
-    </motion.a>
+    </m.a>
   );
 }

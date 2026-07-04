@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
+import { m, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/cn";
 
 type Props = { className?: string; children: React.ReactNode };
@@ -29,7 +29,7 @@ export function TiltCard({ className, children }: Props) {
   }
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
@@ -37,6 +37,6 @@ export function TiltCard({ className, children }: Props) {
       className={cn("will-change-transform", className)}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

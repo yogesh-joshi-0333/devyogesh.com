@@ -36,12 +36,12 @@ export function Navbar() {
         )}
         aria-label="Main"
       >
-        <Link href="/" className="font-mono text-sm font-semibold tracking-tight">
+        <Link prefetch={false} href="/" className="font-mono text-sm font-semibold tracking-tight">
           <span className="text-gradient">dev</span>yogesh
         </Link>
         <div className="hidden items-center gap-6 sm:flex">
           {links.map((l) => (
-            <Link
+            <Link prefetch={false}
               key={l.href}
               href={l.href}
               className="text-sm text-muted transition-colors hover:text-ink"

@@ -17,18 +17,18 @@ export function Dashboard({ profile, github }: { profile: Profile; github: GitHu
       title="Measured, not claimed"
       intro="Skills are easy to list. Activity is harder to fake."
     >
-      <dl className="grid grid-cols-2 gap-5 lg:grid-cols-3">
-        {stats.map((s, i) => (
-          <Reveal key={s.label} delay={(i % 3) * 0.06}>
-            <div className="gradient-border rounded-2xl p-6">
+      <Reveal>
+        <dl className="grid grid-cols-2 gap-5 lg:grid-cols-3">
+          {stats.map((s) => (
+            <div key={s.label} className="gradient-border flex flex-col rounded-2xl p-6">
+              <dt className="order-2 mt-2 block text-sm text-muted">{s.label}</dt>
               <dd className="text-4xl font-semibold tracking-tight text-gradient sm:text-5xl">
                 <Counter value={s.value} suffix={s.suffix ?? ""} />
               </dd>
-              <dt className="mt-2 text-sm text-muted">{s.label}</dt>
             </div>
-          </Reveal>
-        ))}
-      </dl>
+          ))}
+        </dl>
+      </Reveal>
     </Section>
   );
 }

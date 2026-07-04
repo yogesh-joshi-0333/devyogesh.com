@@ -115,6 +115,32 @@ body {
   }
 }
 
+/* Hero entrance (CSS so the LCP element paints immediately for crawlers/reduced JS) */
+.hero-in {
+  animation: hero-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes hero-in {
+  from {
+    opacity: 0.01;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-in {
+    animation: none;
+  }
+}
+
+/* Defer offscreen section rendering */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
 /* Glass card */
 .glass {
   background: color-mix(in srgb, var(--surface) 72%, transparent);

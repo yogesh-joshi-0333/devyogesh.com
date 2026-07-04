@@ -13,7 +13,7 @@ export function Section({ id, eyebrow, title, intro, className, children }: Prop
   return (
     <section
       id={id}
-      className={cn("relative mx-auto w-full max-w-6xl px-6 py-24 sm:py-32", className)}
+      className={cn("cv-auto relative mx-auto w-full max-w-6xl px-6 py-24 sm:py-32", className)}
     >
       {(eyebrow || title) && (
         <header className="mb-12 max-w-2xl">

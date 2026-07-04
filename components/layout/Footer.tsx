@@ -9,8 +9,8 @@ export function Footer() {
           © {new Date().getFullYear()} {site.name}. Built as a product, not a page.
         </p>
         <nav className="flex items-center gap-5 text-sm text-muted" aria-label="Footer">
-          <Link href="/uses/" className="hover:text-ink transition-colors">Uses</Link>
-          <Link href="/now/" className="hover:text-ink transition-colors">Now</Link>
+          <Link prefetch={false} href="/uses/" className="hover:text-ink transition-colors">Uses</Link>
+          <Link prefetch={false} href="/now/" className="hover:text-ink transition-colors">Now</Link>
           <a href={site.socials.github} rel="noopener noreferrer" target="_blank" className="hover:text-ink transition-colors">GitHub</a>
           <a href={site.socials.linkedin} rel="noopener noreferrer" target="_blank" className="hover:text-ink transition-colors">LinkedIn</a>
         </nav>

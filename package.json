@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate-content": "npx tsx scripts/validate-content.ts",
+    "refresh-github": "npx tsx scripts/refresh-github.ts"
   },
   "dependencies": {
     "framer-motion": "^12.42.2",

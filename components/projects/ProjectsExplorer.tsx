@@ -39,7 +39,7 @@ export function ProjectsExplorer({ projects }: { projects: ProjectMeta[] }) {
       <div className="grid gap-6 sm:grid-cols-2">
         {filtered.map((p) => (
           <Reveal key={p.slug}>
-            <Link
+            <Link prefetch={false}
               href={`/projects/${p.slug}/`}
               className="gradient-border group flex h-full flex-col rounded-2xl p-7 transition-shadow hover:shadow-xl"
             >

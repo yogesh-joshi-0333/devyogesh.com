@@ -53,9 +53,9 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
       <ReadingProgress />
       <JsonLd data={breadcrumbs} />
       <nav aria-label="Breadcrumb" className="mb-8 font-mono text-xs text-muted">
-        <Link href="/" className="hover:text-ink">Home</Link>
+        <Link prefetch={false} href="/" className="hover:text-ink">Home</Link>
         <span aria-hidden> / </span>
-        <Link href="/projects/" className="hover:text-ink">Projects</Link>
+        <Link prefetch={false} href="/projects/" className="hover:text-ink">Projects</Link>
         <span aria-hidden> / </span>
         <span className="text-ink">{project.title}</span>
       </nav>
@@ -94,7 +94,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
         <MDXRemote source={project.body} />
       </article>
       <footer className="mt-16 border-t border-line pt-8">
-        <Link href="/projects/" className="text-sm font-medium text-muted hover:text-ink">
+        <Link prefetch={false} href="/projects/" className="text-sm font-medium text-muted hover:text-ink">
           ← All projects
         </Link>
       </footer>

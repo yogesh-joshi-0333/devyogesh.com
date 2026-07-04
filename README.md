@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DevYogesh.com — Portfolio Website (v1)
 
-## Getting Started
+A cinematic, high-performance, dark-first portfolio website for **Yogesh Joshi — Senior AI & Software Engineer**. 
 
-First, run the development server:
+Built with Next.js 16 (Static Export), TypeScript, Tailwind CSS v4, Framer Motion (lazy-loaded), and MDX.
 
+---
+
+## 🛠️ Stack & Architecture
+
+- **Framework:** Next.js 16 (App Router) using `output: 'export'` for full static generation.
+- **Styling:** Tailwind CSS v4 with custom variables configured in `app/globals.css` for a premium dark interface.
+- **Animations:** Framer Motion (optimized using `LazyMotion` and `m` tags to minimize the bundle size).
+- **Interactive FX:** Custom cursor spotlight glow, typewriter role animators, and a canvas particle field that pauses when off-screen or out of focus.
+- **Data Source:** Static JSON & MDX files stored inside the `content/` folder.
+- **Dynamic Data:** Dynamic GitHub contribution calendar heatmap and repository statistics fetched at build-time (with REST APIs and static JSON fallbacks).
+
+---
+
+## 🚀 Getting Started
+
+### 1. Installation
+Install the project dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Run the Development Server
+Launch the local Turbopack development server:
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📄 Content Management
 
-## Learn More
+Prose and metadata are decoupled from layout files. To update content:
 
-To learn more about Next.js, take a look at the following resources:
+- **Identity & Biography:** Edit [content/profile.json](file:///c:/Users/joshi/projects/devyogesh.com/content/profile.json)
+- **Engineering Philosophy:** Edit [content/philosophy.json](file:///c:/Users/joshi/projects/devyogesh.com/content/philosophy.json)
+- **Focus Areas:** Edit [content/focus.json](file:///c:/Users/joshi/projects/devyogesh.com/content/focus.json)
+- **Engineering Journey:** Edit [content/journey.json](file:///c:/Users/joshi/projects/devyogesh.com/content/journey.json)
+- **Tech Stack:** Edit [content/stack.json](file:///c:/Users/joshi/projects/devyogesh.com/content/stack.json)
+- **Capabilities (AI & Software):** Edit [content/ai-capabilities.json](file:///c:/Users/joshi/projects/devyogesh.com/content/ai-capabilities.json) and [content/software-capabilities.json](file:///c:/Users/joshi/projects/devyogesh.com/content/software-capabilities.json)
+- **Case Studies (MDX):** Add or edit MDX files in [content/projects/](file:///c:/Users/joshi/projects/devyogesh.com/content/projects). Each file requires frontmatter metadata and structured section headers (e.g., `## Problem`, `## Architecture`, `## Lessons Learned`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ⚙️ Development Commands
 
-## Deploy on Vercel
+### Validate Content
+Verify that all JSON and MDX case study files conform to the project schema specifications:
+```bash
+npm run validate-content
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Refresh GitHub Statistics Snapshot
+GitHub stats are loaded at build-time. Set a `GITHUB_TOKEN` environment variable to query the GraphQL API, or run the command without a token to query public REST endpoints. This command refreshes the local fallback snapshot:
+```bash
+npm run refresh-github
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Run Linter
+Scan codebase for code style and syntax issues:
+```bash
+npm run lint
+```
+
+### Create Build
+Export the project as a fully static website in the `out/` folder:
+```bash
+npm run build
+```
+
+---
+
+## 🌐 Deployment to Hostinger
+
+Since the project uses Next.js static exports, it can be deployed directly to Hostinger's static web servers.
+
+### Steps to Deploy manually:
+1. Run `npm run build` to generate the production static files in the `out/` directory.
+2. Compress the contents of the `out/` directory into a `.zip` archive.
+3. Upload the archive to your Hostinger server (main directory `/public_html` or subdomain folders like `/public_html/preview`) and extract.

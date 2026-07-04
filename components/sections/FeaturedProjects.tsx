@@ -16,7 +16,7 @@ export function FeaturedProjects({ projects }: { projects: Project[] }) {
         {projects.map((p, i) => (
           <Reveal key={p.slug} delay={(i % 2) * 0.08}>
             <TiltCard className="h-full">
-              <Link
+              <Link prefetch={false}
                 href={`/projects/${p.slug}/`}
                 className="gradient-border group flex h-full flex-col rounded-2xl p-7 transition-shadow hover:shadow-xl"
               >
@@ -49,7 +49,7 @@ export function FeaturedProjects({ projects }: { projects: Project[] }) {
         ))}
       </div>
       <Reveal className="mt-10">
-        <Link href="/projects/" className="text-sm font-medium text-muted underline-offset-4 hover:text-ink hover:underline">
+        <Link prefetch={false} href="/projects/" className="text-sm font-medium text-muted underline-offset-4 hover:text-ink hover:underline">
           Browse all projects →
         </Link>
       </Reveal>

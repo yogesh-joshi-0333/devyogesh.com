@@ -13,7 +13,7 @@ export default function NotFound() {
           This page doesn&apos;t exist — or an agent refactored it away. Either way, the route
           returned nothing.
         </p>
-        <Link
+        <Link prefetch={false}
           href="/"
           className="mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-bg transition-colors hover:bg-blue hover:text-white"
         >

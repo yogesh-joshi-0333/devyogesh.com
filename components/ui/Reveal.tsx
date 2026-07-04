@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { fadeRise, VIEWPORT } from "@/lib/motion";
 
 type Props = {
@@ -13,7 +13,7 @@ export function Reveal({ className, delay = 0, children }: Props) {
   const reduce = useReducedMotion();
   if (reduce) return <div className={className}>{children}</div>;
   return (
-    <motion.div
+    <m.div
       className={className}
       variants={fadeRise}
       initial="hidden"
@@ -22,6 +22,6 @@ export function Reveal({ className, delay = 0, children }: Props) {
       transition={{ delay }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
