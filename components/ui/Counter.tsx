@@ -13,11 +13,11 @@ export function Counter({ value, suffix = "", duration = 1.6 }: Props) {
 
   useEffect(() => {
     if (!inView) return;
-    if (reduce) {
-      setDisplay(value);
-      return;
-    }
     let frame: number;
+    if (reduce) {
+      frame = requestAnimationFrame(() => setDisplay(value));
+      return () => cancelAnimationFrame(frame);
+    }
     const start = performance.now();
     const tick = (now: number) => {
       const t = Math.min((now - start) / (duration * 1000), 1);

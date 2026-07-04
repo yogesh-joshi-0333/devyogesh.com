@@ -122,10 +122,6 @@ export function CommandPalette({ projects }: Props) {
     if (open) inputRef.current?.focus();
   }, [open]);
 
-  useEffect(() => {
-    setIndex(0);
-  }, [query]);
-
   if (!open) return null;
 
   return (
@@ -145,7 +141,10 @@ export function CommandPalette({ projects }: Props) {
           ref={inputRef}
           type="text"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            setIndex(0);
+          }}
           onKeyDown={(e) => {
             if (e.key === "ArrowDown") {
               e.preventDefault();

@@ -10,7 +10,11 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
-  const projects = getProjects().map(({ body: _body, ...meta }) => meta);
+  const projects = getProjects().map((p) => {
+    const { body, ...meta } = p;
+    void body;
+    return meta;
+  });
   return (
     <main id="main" className="mx-auto w-full max-w-6xl px-6 pt-36 pb-24">
       <header className="mb-12 max-w-2xl">

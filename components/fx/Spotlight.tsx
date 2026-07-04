@@ -1,16 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useReducedMotion } from "framer-motion";
 
 export function Spotlight() {
   const reduce = useReducedMotion();
-  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
     const fine = window.matchMedia("(pointer: fine)").matches;
     if (!fine || reduce) return;
-    setEnabled(true);
     const el = document.getElementById("spotlight");
     const onMove = (e: MouseEvent) => {
       if (el) {
@@ -21,7 +19,6 @@ export function Spotlight() {
     return () => window.removeEventListener("mousemove", onMove);
   }, [reduce]);
 
-  if (!enabled) return null;
   return (
     <div
       id="spotlight"
