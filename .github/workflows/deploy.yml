@@ -1,0 +1,58 @@
+name: Deploy Portfolio Website
+
+on:
+  push:
+    branches:
+      - main
+      - preview
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-cache: 'npm'
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Validate Content Schemas
+        run: npm run validate-content
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Build Static Export
+        run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }} # Optional, for higher rate limit on build stats
+
+      - name: Determine Target Directory
+        id: target
+        run: |
+          if [ "${{ github.ref_name }}" = "main" ]; then
+            echo "dir=public_html/" >> $GITHUB_OUTPUT
+          else
+            echo "dir=public_html/preview/" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Deploy to Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: ./${{ steps.target.outputs.dir }}
+          dangerous-clean-html: false
