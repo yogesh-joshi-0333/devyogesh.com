@@ -1,19 +1,57 @@
 # DevYogesh.com — Portfolio Website (v1)
 
-A cinematic, high-performance, dark-first portfolio website for **Yogesh Joshi — Senior AI & Software Engineer**. 
+[![Deploy Portfolio Website](https://github.com/yogesh-joshi-0333/devyogesh.com/actions/workflows/deploy.yml/badge.svg)](https://github.com/yogesh-joshi-0333/devyogesh.com/actions/workflows/deploy.yml)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-16.2-black?logo=next.js)](https://nextjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4-38bdf8?logo=tailwind-css)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-Built with Next.js 16 (Static Export), TypeScript, Tailwind CSS v4, Framer Motion (lazy-loaded), and MDX.
+A cinematic, dark-first, and highly optimized professional portfolio website for **Yogesh Joshi — Senior AI & Software Engineer**. 
+
+The site is built as a Next.js 16 Static Export (`output: 'export'`) and automated to deploy securely to Hostinger via GitHub Actions CI/CD.
 
 ---
 
-## 🛠️ Stack & Architecture
+## 🏗️ Architecture & Tech Stack
 
-- **Framework:** Next.js 16 (App Router) using `output: 'export'` for full static generation.
-- **Styling:** Tailwind CSS v4 with custom variables configured in `app/globals.css` for a premium dark interface.
-- **Animations:** Framer Motion (optimized using `LazyMotion` and `m` tags to minimize the bundle size).
-- **Interactive FX:** Custom cursor spotlight glow, typewriter role animators, and a canvas particle field that pauses when off-screen or out of focus.
-- **Data Source:** Static JSON & MDX files stored inside the `content/` folder.
-- **Dynamic Data:** Dynamic GitHub contribution calendar heatmap and repository statistics fetched at build-time (with REST APIs and static JSON fallbacks).
+*   **Framework:** Next.js 16 (App Router)
+*   **Rendering:** SSG (Static Site Generation / Prerendered Static HTML)
+*   **Styling:** Tailwind CSS v4 using CSS variables for dark-first design tokens
+*   **Animations:** Framer Motion (optimized using `LazyMotion` and `m` tags to minimize initial bundle size)
+*   **Interactive FX:** Canvas-based 2D particle node field (pauses when out of focus to save CPU) and mouse-following spotlight radial glow
+*   **Data Layer:** Managed entirely via local JSON configuration and MDX case study files (decoupled from the component files)
+*   **Dynamic Data:** Build-time fetched GitHub contribution activity and repository stats with committed snapshot fallback
+
+---
+
+## 📁 Repository Structure
+
+```text
+devyogesh.com/
+├── .github/workflows/
+│   └── deploy.yml          # Dual-branch CI/CD deploy pipeline (SSH/rsync)
+├── app/
+│   ├── globals.css         # Styling, Tailwind imports, and design tokens
+│   ├── layout.tsx          # Root HTML shell, next-themes, and layout structure
+│   ├── page.tsx            # Main cinematic landing page combining all sections
+│   ├── opengraph-image.tsx # Dynamic OpenGraph / Twitter meta card generator
+│   └── projects/
+│       ├── page.tsx        # Projects index explorer with category filters
+│       └── [slug]/
+│           └── page.tsx    # SSG MDX case studies rendered dynamic-to-static
+├── components/
+│   ├── fx/                 # Interactive visual effects (Spotlight cursor)
+│   ├── hero/               # Hero particle canvas and typewriter components
+│   ├── layout/             # Shared layout chrome (Navbar, Footer)
+│   ├── palette/            # Modal Command Palette (Cmd+K)
+│   ├── sections/           # Individual landing page sections (Journey, Stack, etc.)
+│   └── ui/                 # Reusable primitive blocks (TiltCard, Reveal, Section)
+├── content/                # The Content Layer (JSON schema configs and MDX files)
+├── lib/                    # Shared helper functions, configurations, and loaders
+├── public/                 # Static assets, icons, and favicon configurations
+├── scripts/                # Utility node scripts for content validation and APIs
+└── package.json            # Scripts, dependency mappings, and project metadata
+```
 
 ---
 
@@ -25,62 +63,53 @@ Install the project dependencies:
 npm install
 ```
 
-### 2. Run the Development Server
-Launch the local Turbopack development server:
+### 2. Local Development
+Start the Next.js Turbopack dev server:
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
----
-
-## 📄 Content Management
-
-Prose and metadata are decoupled from layout files. To update content:
-
-- **Identity & Biography:** Edit [content/profile.json](file:///c:/Users/joshi/projects/devyogesh.com/content/profile.json)
-- **Engineering Philosophy:** Edit [content/philosophy.json](file:///c:/Users/joshi/projects/devyogesh.com/content/philosophy.json)
-- **Focus Areas:** Edit [content/focus.json](file:///c:/Users/joshi/projects/devyogesh.com/content/focus.json)
-- **Engineering Journey:** Edit [content/journey.json](file:///c:/Users/joshi/projects/devyogesh.com/content/journey.json)
-- **Tech Stack:** Edit [content/stack.json](file:///c:/Users/joshi/projects/devyogesh.com/content/stack.json)
-- **Capabilities (AI & Software):** Edit [content/ai-capabilities.json](file:///c:/Users/joshi/projects/devyogesh.com/content/ai-capabilities.json) and [content/software-capabilities.json](file:///c:/Users/joshi/projects/devyogesh.com/content/software-capabilities.json)
-- **Case Studies (MDX):** Add or edit MDX files in [content/projects/](file:///c:/Users/joshi/projects/devyogesh.com/content/projects). Each file requires frontmatter metadata and structured section headers (e.g., `## Problem`, `## Architecture`, `## Lessons Learned`).
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ---
 
 ## ⚙️ Development Commands
 
-### Validate Content
-Verify that all JSON and MDX case study files conform to the project schema specifications:
+### Validate Content Schemas
+To ensure all JSON and MDX projects conform to the site's TypeScript data definitions:
 ```bash
 npm run validate-content
 ```
 
-### Refresh GitHub Statistics Snapshot
-GitHub stats are loaded at build-time. Set a `GITHUB_TOKEN` environment variable to query the GraphQL API, or run the command without a token to query public REST endpoints. This command refreshes the local fallback snapshot:
+### Refresh GitHub Stats Snapshot
+Stats are fetched at build-time. Set a `GITHUB_TOKEN` environment variable to use the GraphQL API, or run without one to query public REST fallback APIs. This script refreshes the local cache snapshot file:
 ```bash
 npm run refresh-github
 ```
 
 ### Run Linter
-Scan codebase for code style and syntax issues:
+Scan for TypeScript type correctness and code styling issues:
 ```bash
 npm run lint
 ```
 
-### Create Build
-Export the project as a fully static website in the `out/` folder:
+### Build Project
+Compile the site and export it as static files in the `out/` folder:
 ```bash
 npm run build
 ```
 
 ---
 
-## 🌐 Deployment to Hostinger
+## 🌐 CI/CD & Automated Deployment
 
-Since the project uses Next.js static exports, it can be deployed directly to Hostinger's static web servers.
+Deployments are automated using GitHub Actions (`.github/workflows/deploy.yml`) which compiles the Next.js site and securely syncs files to Hostinger via **SFTP/SSH** using `rsync` over port `65002`.
 
-### Steps to Deploy manually:
-1. Run `npm run build` to generate the production static files in the `out/` directory.
-2. Compress the contents of the `out/` directory into a `.zip` archive.
-3. Upload the archive to your Hostinger server (main directory `/public_html` or subdomain folders like `/public_html/preview`) and extract.
+### Branching Strategy
+*   **`preview` branch:** Pushes auto-deploy to the staging subdomain: **[preview.devyogesh.com](http://preview.devyogesh.com)**
+*   **`main` branch:** Pushes auto-deploy to the live production site: **[devyogesh.com](http://devyogesh.com)**
+
+### Required Secrets
+Add your SSH password to your GitHub Repository Secrets (**Settings > Secrets and variables > Actions**):
+*   `SSH_PASSWORD` - Your Hostinger SSH Account Password
+
+*(Other details: `SSH_HOST`, `SSH_PORT`, and `SSH_USER` have already been securely configured automatically via the GitHub CLI).*

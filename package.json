@@ -1,6 +1,17 @@
 {
   "name": "devyogesh.com",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Cinematic, high-performance portfolio website for Yogesh Joshi — Senior AI & Software Engineer.",
+  "author": "Yogesh Joshi <joshiyogesh0333@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://devyogesh.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yogesh-joshi-0333/devyogesh.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yogesh-joshi-0333/devyogesh.com/issues"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
