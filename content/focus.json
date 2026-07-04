@@ -1,0 +1,21 @@
+{
+  "title": "Current Focus",
+  "intro": "What I'm building and exploring right now.",
+  "items": [
+    {
+      "title": "Multi-Agent Content Pipelines",
+      "description": "Designing production multi-agent systems with CrewAI and Pydantic schemas that research, write, and quality-gate content end-to-end.",
+      "tag": "Agentic AI"
+    },
+    {
+      "title": "MCP Tooling",
+      "description": "Building Model Context Protocol servers that give AI agents safe, structured access to real business systems.",
+      "tag": "MCP"
+    },
+    {
+      "title": "AI-Powered Product Features",
+      "description": "Shipping LLM features inside real products — streaming UX, structured outputs, evals, and cost control at scale.",
+      "tag": "Product AI"
+    }
+  ]
+}

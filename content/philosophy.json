@@ -1,0 +1,20 @@
+{
+  "statements": [
+    {
+      "lead": "Architecture before code.",
+      "body": "Every system I build starts with boundaries, data flow, and failure modes — not frameworks. Good architecture makes the code obvious."
+    },
+    {
+      "lead": "AI is an engineering discipline.",
+      "body": "Prompts, retrieval, evals, and cost control deserve the same rigor as databases and APIs. Demos are easy; production AI is engineering."
+    },
+    {
+      "lead": "Simple scales. Clever doesn't.",
+      "body": "The best systems are the ones a new engineer can understand in an afternoon and extend without fear."
+    },
+    {
+      "lead": "Always be learning.",
+      "body": "Technology compounds. I explore emerging tools relentlessly, keep what survives contact with production, and share what I learn."
+    }
+  ]
+}

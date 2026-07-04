@@ -1,0 +1,9 @@
+{
+  "updated": "2026-07-04",
+  "intro": "What I'm focused on right now — updated as it changes.",
+  "items": [
+    { "title": "Productized AI pipelines", "description": "Turning multi-agent content and automation systems into a repeatable, sellable product architecture." },
+    { "title": "MCP everywhere", "description": "Standardizing agent access to business tools through Model Context Protocol servers." },
+    { "title": "This website", "description": "Treating my own site as a product: performance budgets, motion system, and a living build log." }
+  ]
+}

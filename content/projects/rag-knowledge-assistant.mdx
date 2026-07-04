@@ -1,0 +1,39 @@
+---
+title: "RAG Knowledge Assistant"
+slug: "rag-knowledge-assistant"
+summary: "A retrieval-augmented assistant that answers questions over private business documents with citations, built on pgvector and Claude."
+domain: "AI Engineering"
+tech: ["Python", "FastAPI", "PostgreSQL", "pgvector", "Claude API", "Next.js"]
+featured: true
+order: 4
+year: 2025
+status: "draft"
+links:
+  demo: ""
+  github: ""
+---
+
+## Problem
+
+Teams lose hours searching wikis, PDFs, and past tickets. The goal: an assistant that answers questions from private company knowledge accurately, with citations — and says "I don't know" instead of hallucinating.
+
+## Architecture
+
+Ingestion pipeline (parsing, semantic chunking, embedding into pgvector) feeding a FastAPI retrieval service with hybrid search (vector + keyword) and reranking. Claude generates grounded answers constrained to retrieved context, streaming into a Next.js chat UI with inline citations.
+
+## Challenges
+
+- **Chunking quality:** naive fixed-size chunks destroyed answer quality; heading-aware semantic chunking fixed it.
+- **Groundedness:** an answer-verification step checks claims against retrieved passages before responding.
+
+## Performance
+
+High answer-acceptance rate in internal testing with strict citation coverage. *(Draft metrics — replace with real numbers.)*
+
+## Lessons Learned
+
+Retrieval quality dominates model quality: most "LLM errors" were actually search errors.
+
+## Future Improvements
+
+Multi-source connectors, conversational memory, and automated eval suite on a golden question set.

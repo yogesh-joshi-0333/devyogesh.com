@@ -1,0 +1,43 @@
+{
+  "items": [
+    {
+      "period": "2024 — Present",
+      "role": "Senior AI & Software Engineer",
+      "org": "TechArk / Codeworkers",
+      "summary": "Leading AI engineering initiatives: multi-agent automation systems, LLM-powered product features, and intelligent workflow pipelines for client platforms.",
+      "highlights": ["Agentic AI", "CrewAI", "FastAPI", "Next.js"]
+    },
+    {
+      "period": "2022 — 2024",
+      "role": "Senior Software Engineer",
+      "org": "IndiaNIC InfoTech Ltd",
+      "summary": "Built topspinclub.in and the EventApp product line, supported newra.ai, and led white-label product development and engineering teams.",
+      "highlights": ["Laravel", "React", "Team Leadership", "White-label Products"]
+    },
+    {
+      "period": "2019 — 2022",
+      "role": "Senior Web Developer",
+      "org": "Hunani Infotech",
+      "summary": "Led development teams across Laravel and WordPress platforms; introduced A/B testing practices and cloud deployment on AWS, Heroku, and Firebase.",
+      "highlights": ["Laravel", "AWS", "MySQL", "A/B Testing"]
+    },
+    {
+      "period": "2019",
+      "role": "Senior Developer",
+      "org": "Spark Tech Solution",
+      "summary": "Owned project delivery end to end: REST APIs, SEO engineering, plugin and theme development, and third-party integrations.",
+      "highlights": ["REST APIs", "SEO", "Integrations"]
+    },
+    {
+      "period": "2018 — 2019",
+      "role": "Junior Web Developer",
+      "org": "Hashscript",
+      "summary": "Started the journey: advanced PHP, server management, and project coordination — learning how real software gets shipped.",
+      "highlights": ["PHP", "Servers", "Foundations"]
+    }
+  ],
+  "education": [
+    { "period": "2016 — 2018", "degree": "Master of Computer Applications", "school": "Marwadi University" },
+    { "period": "2013 — 2016", "degree": "Bachelor of Computer Applications", "school": "Bhavnagar University" }
+  ]
+}

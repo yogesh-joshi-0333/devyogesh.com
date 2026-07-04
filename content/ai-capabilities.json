@@ -1,0 +1,56 @@
+{
+  "title": "AI Engineering",
+  "intro": "Production AI is an engineering discipline. These are the systems I design, build, and operate.",
+  "items": [
+    {
+      "title": "LLM Application Development",
+      "description": "Production apps on Claude, GPT, and Gemini APIs — streaming, structured outputs, and tool calling done right.",
+      "icon": "sparkles"
+    },
+    {
+      "title": "Agentic AI & Multi-Agent Systems",
+      "description": "Autonomous agents and CrewAI / LangGraph orchestration with planner–executor patterns and tool-using workflows.",
+      "icon": "network"
+    },
+    {
+      "title": "RAG & Vector Search",
+      "description": "Retrieval pipelines with embeddings, chunking strategies, and hybrid search over pgvector, Pinecone, and Qdrant.",
+      "icon": "search"
+    },
+    {
+      "title": "MCP (Model Context Protocol)",
+      "description": "Building and integrating MCP servers that connect AI agents safely to real tools and data.",
+      "icon": "plug"
+    },
+    {
+      "title": "Prompt Engineering",
+      "description": "System-prompt design, reusable prompt libraries, few-shot patterns, and guardrails that hold up in production.",
+      "icon": "terminal"
+    },
+    {
+      "title": "Fine-tuning & Local LLMs",
+      "description": "LoRA/PEFT fine-tuning and private deployments with Ollama for on-prem and cost-sensitive workloads.",
+      "icon": "cpu"
+    },
+    {
+      "title": "AI Evals & Observability",
+      "description": "Output testing, regression evals, tracing, and cost/latency monitoring — so AI features don't silently degrade.",
+      "icon": "gauge"
+    },
+    {
+      "title": "Intelligent Automation",
+      "description": "AI-powered workflow pipelines, document intelligence, and content automation that remove entire manual processes.",
+      "icon": "workflow"
+    },
+    {
+      "title": "Voice & Multimodal AI",
+      "description": "Speech-to-text, text-to-speech, and vision-model integrations for products beyond plain text.",
+      "icon": "mic"
+    },
+    {
+      "title": "AI + Product Engineering",
+      "description": "Shipping AI inside real products: FastAPI/Laravel backends, queues, caching, and cost control at scale.",
+      "icon": "rocket"
+    }
+  ]
+}

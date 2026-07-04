@@ -1,0 +1,28 @@
+{
+  "groups": [
+    {
+      "name": "AI Engineering",
+      "items": ["Claude API", "OpenAI API", "CrewAI", "LangChain", "LangGraph", "MCP", "RAG", "pgvector", "Ollama", "Prompt Engineering", "AI Evals"]
+    },
+    {
+      "name": "Backend",
+      "items": ["Python", "FastAPI", "PHP", "Laravel", "Node.js", "REST APIs", "GraphQL", "Queues & Workers"]
+    },
+    {
+      "name": "Frontend",
+      "items": ["TypeScript", "React", "Next.js", "Vue.js", "Tailwind CSS", "Framer Motion"]
+    },
+    {
+      "name": "Data",
+      "items": ["MySQL", "PostgreSQL", "MongoDB", "Redis", "Vector Databases"]
+    },
+    {
+      "name": "Cloud & DevOps",
+      "items": ["AWS", "Docker", "CI/CD", "Nginx", "Firebase", "Heroku"]
+    },
+    {
+      "name": "Tools & Practice",
+      "items": ["Git", "Figma", "Linux", "Testing", "System Design", "SEO Engineering"]
+    }
+  ]
+}

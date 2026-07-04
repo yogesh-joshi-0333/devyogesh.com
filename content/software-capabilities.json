@@ -1,0 +1,36 @@
+{
+  "title": "Software Engineering",
+  "intro": "Eight years of building platforms that survive real users, real load, and real teams.",
+  "items": [
+    {
+      "title": "System & API Architecture",
+      "description": "Designing service boundaries, data models, and REST/GraphQL APIs that stay maintainable as products grow.",
+      "icon": "blocks"
+    },
+    {
+      "title": "Backend Platforms",
+      "description": "Laravel, FastAPI, and Node.js backends with queues, caching layers, and background workers built for scale.",
+      "icon": "server"
+    },
+    {
+      "title": "Modern Frontend",
+      "description": "React, Next.js, and Vue applications with performance budgets, accessibility, and design-system discipline.",
+      "icon": "layout"
+    },
+    {
+      "title": "Data & Storage",
+      "description": "MySQL, PostgreSQL, MongoDB, and Redis — schema design, query optimization, and migration strategies.",
+      "icon": "database"
+    },
+    {
+      "title": "Cloud & DevOps",
+      "description": "AWS deployments, Docker, CI/CD pipelines, and infrastructure that ships safely and rolls back cleanly.",
+      "icon": "cloud"
+    },
+    {
+      "title": "Technical Leadership",
+      "description": "Leading teams, reviewing code, mentoring engineers, and turning ambiguous requirements into shipped products.",
+      "icon": "users"
+    }
+  ]
+}

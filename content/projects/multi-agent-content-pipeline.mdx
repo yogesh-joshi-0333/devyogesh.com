@@ -1,0 +1,40 @@
+---
+title: "Multi-Agent Content Automation Pipeline"
+slug: "multi-agent-content-pipeline"
+summary: "A production multi-agent system that researches, writes, quality-gates, and publishes long-form content with near-zero human touch."
+domain: "AI Engineering"
+tech: ["Python", "CrewAI", "Pydantic", "Claude API", "FastAPI", "Redis"]
+featured: true
+order: 1
+year: 2026
+status: "draft"
+links:
+  demo: ""
+  github: ""
+---
+
+## Problem
+
+Producing consistent, high-quality long-form content at scale requires a team of researchers, writers, and editors. The goal: a pipeline where AI agents handle the full workflow — research, drafting, fact-checking, and formatting — while enforcing quality standards a human editor would.
+
+## Architecture
+
+A crew of specialized agents orchestrated with CrewAI: a research agent with web-search tools, a structuring agent that produces a validated Pydantic outline, a writer agent per section, and a critic agent that scores drafts against a rubric and sends failures back for revision. FastAPI exposes the pipeline; Redis queues decouple long-running jobs from the API.
+
+## Challenges
+
+- **Schema drift:** free-form LLM output broke downstream steps. Solved with strict Pydantic schemas and automatic retry-on-validation-failure.
+- **Cost control:** per-stage model selection (small models for structuring, large for writing) cut cost by ~60% *(draft metric — to be confirmed)*.
+- **Quality gates:** a critic agent with an explicit rubric outperformed single-shot "write it well" prompting by a wide margin.
+
+## Performance
+
+End-to-end article generation in minutes instead of person-days; consistent structure across hundreds of runs. *(Draft metrics — replace with real numbers.)*
+
+## Lessons Learned
+
+Multi-agent systems succeed or fail on interfaces: strict schemas between agents matter more than clever prompts inside them.
+
+## Future Improvements
+
+Automatic eval harness on published output, human-feedback loop, and MCP-based tool access for research agents.

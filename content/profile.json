@@ -1,0 +1,19 @@
+{
+  "name": "Yogesh Joshi",
+  "role": "Senior AI & Software Engineer",
+  "heroStatement": "I build intelligent systems that ship.",
+  "heroSub": "Senior AI & Software Engineer crafting production-grade AI systems, intelligent automation, and scalable platforms — from architecture to deployment.",
+  "typingRoles": [
+    "AI Systems Engineer",
+    "Agentic AI Builder",
+    "Full-Stack Architect",
+    "Automation Engineer"
+  ],
+  "brandMessage": "I don't build software just to make applications work. I build software that is scalable, maintainable, intelligent, and designed for real-world impact.",
+  "stats": [
+    { "label": "Years of Experience", "value": 8, "suffix": "+" },
+    { "label": "Projects Delivered", "value": 40, "suffix": "+" },
+    { "label": "Technologies Explored", "value": 30, "suffix": "+" },
+    { "label": "AI Experiments", "value": 25, "suffix": "+" }
+  ]
+}

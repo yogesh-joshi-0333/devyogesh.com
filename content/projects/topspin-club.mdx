@@ -1,0 +1,39 @@
+---
+title: "TopSpin Club — Sports Club Platform"
+slug: "topspin-club"
+summary: "A full sports-club management and booking platform (topspinclub.in) built and scaled at IndiaNIC — memberships, courts, coaching, and payments."
+domain: "Software Engineering"
+tech: ["Laravel", "MySQL", "React", "REST APIs", "AWS"]
+featured: true
+order: 2
+year: 2023
+status: "draft"
+links:
+  demo: "https://topspinclub.in"
+  github: ""
+---
+
+## Problem
+
+Sports clubs managed bookings, memberships, and coaching schedules across spreadsheets and phone calls. TopSpin Club needed a single platform for members to book courts, join coaching programs, and pay online — and for staff to run operations.
+
+## Architecture
+
+Laravel monolith with a clean service layer, MySQL schema designed around club/facility/booking domains, REST APIs consumed by a React front end, and AWS deployment with queued jobs for notifications and payment webhooks.
+
+## Challenges
+
+- **Booking conflicts:** concurrent slot booking required transactional locking and idempotent payment confirmation.
+- **White-label reuse:** the platform was structured so new clubs could launch with configuration, not code changes.
+
+## Performance
+
+Handled peak weekend booking traffic without incident; booking flow completion improved significantly after checkout redesign. *(Draft metrics — replace with real numbers.)*
+
+## Lessons Learned
+
+Domain modeling first: getting the booking/schedule schema right made every later feature cheaper.
+
+## Future Improvements
+
+Mobile app parity, dynamic pricing, and AI-assisted schedule optimization.

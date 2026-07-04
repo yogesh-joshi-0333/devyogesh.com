@@ -1,0 +1,39 @@
+---
+title: "EventApp — White-Label Event Platform"
+slug: "eventapp-whitelabel"
+summary: "A white-label event management product line at IndiaNIC: one codebase, many branded deployments, from registration to live engagement."
+domain: "Software Engineering"
+tech: ["Laravel", "Vue.js", "MySQL", "Firebase", "REST APIs"]
+featured: true
+order: 3
+year: 2023
+status: "draft"
+links:
+  demo: ""
+  github: ""
+---
+
+## Problem
+
+Every event client wanted the same core — registration, agendas, speakers, push notifications — with their own branding and feature mix. Building each from scratch was slow and unprofitable. The goal: a productized white-label platform.
+
+## Architecture
+
+A multi-tenant Laravel core with feature flags per deployment, Vue.js front end themed via design tokens, Firebase for real-time features and push, and a provisioning workflow that spins up a new branded instance in hours.
+
+## Challenges
+
+- **Tenant isolation vs. shared upgrades:** balancing per-client customization against a single upgradable core.
+- **Feature-flag sprawl:** solved with a capability matrix and a strict "configuration over forking" rule.
+
+## Performance
+
+New client launch time dropped from weeks to days. *(Draft metric — replace with real numbers.)*
+
+## Lessons Learned
+
+Productizing is an architecture decision: the discipline to refuse one-off forks is what makes white-label economics work.
+
+## Future Improvements
+
+Self-serve provisioning portal and analytics dashboards per tenant.

@@ -1,0 +1,10 @@
+{
+  "title": "Uses",
+  "intro": "The hardware, software, and tools behind the work.",
+  "sections": [
+    { "name": "Editor & Terminal", "items": ["VS Code + Claude Code", "Cursor", "Windows Terminal + PowerShell", "Git"] },
+    { "name": "AI Tooling", "items": ["Claude API", "Claude Code", "OpenAI API", "Ollama (local models)", "CrewAI", "MCP servers"] },
+    { "name": "Stack Staples", "items": ["Python + FastAPI", "PHP + Laravel", "TypeScript + Next.js", "PostgreSQL / MySQL", "Docker"] },
+    { "name": "Design & Docs", "items": ["Figma", "Excalidraw", "Notion/Obsidian-style notes"] }
+  ]
+}

@@ -1,0 +1,39 @@
+---
+title: "AI Workflow Automation Suite"
+slug: "ai-workflow-automation"
+summary: "Intelligent automation pipelines that read documents, extract structured data, and drive business workflows — replacing manual back-office processes."
+domain: "AI Engineering"
+tech: ["Python", "Claude API", "FastAPI", "Pydantic", "n8n", "PostgreSQL"]
+featured: true
+order: 5
+year: 2025
+status: "draft"
+links:
+  demo: ""
+  github: ""
+---
+
+## Problem
+
+Back-office teams manually re-typed data from invoices, forms, and emails into business systems — slow, error-prone, and expensive. The goal: AI pipelines that extract, validate, and route this data automatically with human review only on low-confidence cases.
+
+## Architecture
+
+Document intake (email/upload) flows into an extraction service using vision-capable LLMs with strict Pydantic output schemas, a confidence-scoring layer that routes uncertain items to a human review queue, and n8n/custom workers that push validated data into downstream systems.
+
+## Challenges
+
+- **Confidence calibration:** deciding when to trust extraction required per-field validation rules, not a single score.
+- **Auditability:** every automated action stores its source snippet and model rationale for review.
+
+## Performance
+
+Large reduction in manual processing time with human review needed on a small fraction of documents. *(Draft metrics — replace with real numbers.)*
+
+## Lessons Learned
+
+The human-in-the-loop escape hatch is the feature that makes full automation trustworthy enough to adopt.
+
+## Future Improvements
+
+Self-improving extraction from reviewer corrections and cross-document reconciliation.
