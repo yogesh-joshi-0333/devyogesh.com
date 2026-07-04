@@ -144,6 +144,69 @@ body {
   color: transparent;
 }
 
+/* Case-study article typography */
+.prose-custom {
+  line-height: 1.75;
+}
+.prose-custom h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+.prose-custom h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose-custom p {
+  margin-bottom: 1.25rem;
+  color: var(--muted);
+}
+.prose-custom strong {
+  color: var(--text);
+}
+.prose-custom ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--muted);
+}
+.prose-custom li {
+  margin-bottom: 0.5rem;
+}
+.prose-custom a {
+  color: var(--accent-blue);
+  text-underline-offset: 4px;
+}
+.prose-custom a:hover {
+  text-decoration: underline;
+}
+.prose-custom code {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.875em;
+  background: var(--surface-2);
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.375rem;
+}
+.prose-custom pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+.prose-custom pre code {
+  background: none;
+  padding: 0;
+}
+.prose-custom em {
+  color: var(--muted);
+}
+
 /* Skip link */
 .skip-link {
   position: absolute;
