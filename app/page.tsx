@@ -19,6 +19,28 @@ import {
   getFeaturedProjects,
 } from "@/lib/content";
 import { getGitHubData } from "@/lib/github";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { site } from "@/lib/site";
+
+const personLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  url: site.url,
+  email: `mailto:${site.email}`,
+  jobTitle: "Senior AI & Software Engineer",
+  address: { "@type": "PostalAddress", addressLocality: "Surat", addressRegion: "Gujarat", addressCountry: "IN" },
+  sameAs: [site.socials.github, site.socials.linkedin, site.socials.instagram],
+};
+
+const websiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: site.shortTitle,
+  url: site.url,
+  description: site.description,
+  author: { "@type": "Person", name: site.name },
+};
 
 export default async function Home() {
   const profile = getProfile();
@@ -26,6 +48,8 @@ export default async function Home() {
 
   return (
     <main id="main">
+      <JsonLd data={personLd} />
+      <JsonLd data={websiteLd} />
       <Hero sub={profile.heroSub} typingRoles={profile.typingRoles} />
       <Philosophy data={getPhilosophy()} brandMessage={profile.brandMessage} />
       <Focus data={getFocus()} />

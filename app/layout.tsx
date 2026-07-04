@@ -6,6 +6,8 @@ import { Providers } from "@/components/theme/Providers";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Spotlight } from "@/components/fx/Spotlight";
+import { PaletteLoader } from "@/components/palette/PaletteLoader";
+import { getProjects } from "@/lib/content";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,13 +34,11 @@ export const metadata: Metadata = {
     siteName: site.shortTitle,
     title: site.title,
     description: site.description,
-    images: ["/og/home.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: site.title,
     description: site.description,
-    images: ["/og/home.png"],
   },
   alternates: { canonical: "/" },
 };
@@ -48,6 +48,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const paletteProjects = getProjects().map((p) => ({ slug: p.slug, title: p.title }));
   return (
     <html
       lang="en"
@@ -60,6 +61,7 @@ export default function RootLayout({
             Skip to content
           </a>
           <Spotlight />
+          <PaletteLoader projects={paletteProjects} />
           <Navbar />
           {children}
           <Footer />
