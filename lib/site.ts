@@ -4,7 +4,7 @@ export const site = {
   shortTitle: "DevYogesh",
   description:
     "Senior AI & Software Engineer building production-grade software, AI systems, intelligent automation, and scalable platforms.",
-  url: "https://devyogesh.com",
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://devyogesh.com") as string,
   email: "joshiyogesh0333@gmail.com",
   location: "Surat, Gujarat, India",
   socials: {

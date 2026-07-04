@@ -33,19 +33,22 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
-      - name: Build Static Export
-        run: npm run build
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }} # Optional, for higher rate limit on build stats
-
-      - name: Determine Target Directory
+      - name: Determine Target Directory & URL
         id: target
         run: |
           if [ "${{ github.ref_name }}" = "main" ]; then
             echo "dir=domains/devyogesh.com/public_html/" >> $GITHUB_OUTPUT
+            echo "url=https://devyogesh.com" >> $GITHUB_OUTPUT
           else
             echo "dir=domains/devyogesh.com/public_html/preview/" >> $GITHUB_OUTPUT
+            echo "url=https://preview.devyogesh.com" >> $GITHUB_OUTPUT
           fi
+
+      - name: Build Static Export
+        run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }} # Optional, for higher rate limit on build stats
+          NEXT_PUBLIC_SITE_URL: ${{ steps.target.outputs.url }}
 
       - name: Install sshpass
         run: sudo apt-get install -y sshpass
